@@ -1,5 +1,6 @@
 package com.example.myapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -12,6 +13,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val loginButton :Button = findViewById(R.id.btnLogin)
+        val signUpButton :Button = findViewById(R.id.btnSignUp)
         val etMail :EditText = findViewById(R.id.etEmail)
         val etPassword :EditText = findViewById(R.id.etPasssword)
 
@@ -25,6 +27,11 @@ class MainActivity : AppCompatActivity() {
             else{
                 Toast.makeText(this,"Invalid Credentials" ,Toast.LENGTH_LONG).show()
             }
+        }
+
+        signUpButton.setOnClickListener{
+            val intent = Intent(this ,signUp::class.java)
+            startActivity(intent)
         }
 
     }
